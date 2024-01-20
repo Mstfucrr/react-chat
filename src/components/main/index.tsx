@@ -3,15 +3,17 @@ import LeftSide from '@/components/leftSide'
 import Chat from '@/components/chat'
 
 const Main = () => {
-    return (
-        // sayfanın tam ortasında büyük kare şeklinde bir alan oluşturduk
-        <div className='h-[750px] md:w-4/5 sm:w-4/5 w-full max-w-[1000px] bg-red-100 mx-auto mt-20 rounded-2xl
-        flex flex-row justify-between items-center shadow-2xl
-        '>
-            <LeftSide />
-            <Chat />
-        </div>
-    )
+  return (
+    // sayfanın tam ortasında büyük kare şeklinde bir alan oluşturduk
+    <div
+      className='mx-auto mt-20 flex h-[750px] w-full max-w-[1000px] flex-row items-center justify-between
+        rounded-2xl bg-red-100 shadow-2xl sm:w-4/5 md:w-4/5
+        '
+    >
+      <LeftSide />
+      <Chat />
+    </div>
+  )
 }
 
 export default Main

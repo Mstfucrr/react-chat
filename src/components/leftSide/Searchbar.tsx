@@ -1,20 +1,14 @@
 import React from 'react'
-import { InputText } from "primereact/inputtext";
+import { InputText } from 'primereact/inputtext'
 
 const Searchbar = () => {
-    return (
-        <div className='w-full bg-red-200 h-10 my-2 flex justify-around items-center flex-row'>
-            <span className="p-input w-11/12">
-                <InputText placeholder="Search"
-                    className='w-full h-8'
-                    type={
-                        "text"
-                    }
-                />
-
-            </span>
-        </div>
-    )
+  return (
+    <div className='my-2 flex h-10 w-full flex-row items-center justify-around bg-red-200'>
+      <span className='p-input w-full px-2'>
+        <InputText placeholder='Search' className='h-8 w-full' type={'text'} />
+      </span>
+    </div>
+  )
 }
 
 export default Searchbar
