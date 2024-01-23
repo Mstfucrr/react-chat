@@ -5,7 +5,7 @@
     "prettier/react",
     "plugin:@tanstack/eslint-plugin-query/recommended"
   ],
-  "plugins": ["@tanstack/query"],
+  "plugins": ["@tanstack/query", "prettier"],
   "rules": {
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/no-rest-destructuring": "warn",
