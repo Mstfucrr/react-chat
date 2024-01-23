@@ -5,7 +5,7 @@ export interface IChatUser {
 }
 
 export interface IChatMessage {
-  id: string
+  id: number
   message: string
   createdAt: Date
   from: IChatUser
