@@ -40,7 +40,7 @@ function UserList({}: Props) {
           {users.map((user, index) => (
             <motion.button
               key={user.id}
-              className='px-7 flex h-20 w-full flex-row items-center justify-between
+              className='md:px-7 px-2 flex h-20 w-full flex-row items-center justify-between
               bg-red-100 border hover:bg-purple-800 hover:transition hover:duration-300 hover:ease-in-out shadow-md'
               whileHover={{ scale: 1.01 }}
               initial='hidden'

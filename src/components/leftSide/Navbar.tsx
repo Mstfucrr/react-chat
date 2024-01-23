@@ -53,7 +53,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='flex w-full flex-row items-center justify-between rounded-tl-xl bg-purple-800 px-3 py-6'>
+    <div className='flex w-auto flex-row items-center justify-between rounded-tl-xl bg-purple-800 px-3 py-6 gap-x-8'>
       {/* leftside Navbar logo and account  */}
       <h1 className='text-md m-0 font-semibold text-red-200'>
         <span className='mr-1 border px-2 font-bold text-primary'>Chat</span>
