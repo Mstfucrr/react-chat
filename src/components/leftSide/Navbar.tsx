@@ -13,29 +13,28 @@ const Navbar = () => {
   const queryClient = useQueryClient()
   // Queries
 
-  // const postTodos = async () => {
-  //   const res = await fetch('https://jsonplaceholder.typicode.com/todos', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       title: 'fssoo',
-  //       body: 'bar',
-  //       userId: 1
-  //     }),
-  //     headers: {
-  //       'Content-type': 'application/json; charset=UTF-8'
-  //     }
-  //   })
-  //   return res.json()
-  // }
+  const postTodos = async () => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/todos', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: 'fssoo',
+        body: 'bar',
+        userId: 1
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      }
+    })
+    return res.json()
+  }
 
-  // const query = useQuery({ queryKey: ['todos'], queryFn: postTodos })
 
-  // const mutation = useMutation({
-  //   mutationFn: postTodos,
-  //   onSuccess: () => {
-  //     queryClient.invalidateQueries({ queryKey: ['todos'] })
-  //   }
-  // })
+  const {mutate : todotpost} = useMutation({
+    mutationFn: postTodos,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['todos'] })
+    }
+  })
 
   // feth api test fetchApiTest()
   const { isLoading, error, data } = useQuery({
@@ -44,8 +43,7 @@ const Navbar = () => {
   })
 
   const addData = () => {
-    // mutation.mutate()
-    // console.log(query.data)
+    
   }
 
   const getData = () => {

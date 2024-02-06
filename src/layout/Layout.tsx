@@ -1,11 +1,5 @@
 import type { Metadata } from 'next'
 import React from 'react'
-//theme
-import 'primereact/resources/themes/lara-light-indigo/theme.css'
-//core
-import 'primereact/resources/primereact.min.css'
-
-import 'primeicons/primeicons.css'
 
 export const metadata: Metadata = {
   title: 'Create Next App',

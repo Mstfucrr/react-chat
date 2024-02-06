@@ -40,17 +40,19 @@ function UserList({}: Props) {
           {users.map((user, index) => (
             <motion.button
               key={user.id}
-              className='md:px-7 px-2 flex h-20 w-full flex-row items-center justify-between
-              bg-red-100 border hover:bg-purple-800 hover:transition hover:duration-300 hover:ease-in-out shadow-md'
-              whileHover={{ scale: 1.01 }}
+              className='flex h-20 w-full flex-row items-center justify-between border bg-red-100
+              px-2 shadow-md hover:bg-purple-800 md:px-7'
+              whileHover={{ scale: 1.02 , transition: { duration: 0.2 , delay: 0 , type: 'spring' , bounce: 0.25 } }}
+              whileTap={{ scale: 0.95 , transition: { duration: 0.2 , delay: 0 , type: 'spring' , bounce: 0.25 } }}
               initial='hidden'
               animate='visible'
               exit='hidden'
               variants={{
-                hidden: { opacity: 0, x: -100 , transition: { duration: 0.5 } },
-                visible: { opacity: 1, x: 0 , transition: { duration: 0.5 , delay: index * 0.1, type: 'spring', bounce: 0.25 } },
+                hidden: { opacity: 0, x: -100 },
+                visible: { opacity: 1, x: 0 },
                 exit: { opacity: 0, x: -100 }
               }}
+              transition={{ duration: 0.5, delay: index * 0.1, type: 'spring', bounce: 0.25 }}
             >
               <div className='flex flex-row items-center justify-start'>
                 <img src={user.avatar} alt='' className='h-12 w-12 rounded-full' />

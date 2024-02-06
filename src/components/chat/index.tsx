@@ -1,6 +1,7 @@
 import { IChatUser, IChatMessage } from '@/types/Type'
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import TopBar from '../topBar'
 
 type Props = {
   isOpen: boolean
@@ -52,34 +53,25 @@ function Chat({ isOpen }: Props) {
   const [messages, setMessages] = useState<IChatMessage[]>(messageTest)
   const [sendMessageText, setSendMessageText] = useState<string>('')
 
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (ref.current) 
+      ref.current.scrollTop = ref.current.scrollHeight;    
+  }, [messages]);
+
   return (
     <motion.section className={`h-full w-full bg-red-200 ${isOpen ? 'rounded-r-2xl' : 'rounded-2xl'}`}>
       <div className='flex h-full max-h-fit w-full flex-col'>
         {/* chat topbar */}
-        <div
-          className={`flex flex-row items-center justify-between ${isOpen ? 'rounded-tr-2xl' : 'rounded-t-2xl'} gap-x-8 bg-purple-700 px-3 py-6`}
-        >
-          {/* leftside Navbar logo and account  */}
-          <h1 className='text-md m-0 font-semibold text-red-200'>
-            <span className='mr-1 border px-2 font-bold text-primary'>Chat</span>
-          </h1>
-
-          <div className='flex flex-row items-center'>
-            <img
-              src='https://avatars.githubusercontent.com/u/48891985?v=4'
-              alt='my account'
-              className='h-10 w-10 rounded-full'
-            />
-            <span className='ml-2 text-xs font-semibold text-red-100'>my account</span>
-          </div>
-        </div>
-
+        <TopBar isOpen={isOpen} />
         {/* chat body */}
         <div className='flex h-full w-full overflow-y-auto'>
           <div className='flex h-full w-full flex-col justify-between'>
             {/* chat messages*/}
             <div
-              className='flex h-full w-full flex-col overflow-y-auto'
+              className='flex h-full w-full flex-col overflow-y-auto overflow-x-hidden scroll-smooth'
+              ref={ref}
             >
               {messages.map(message => (
                 <motion.div
@@ -103,7 +95,7 @@ function Chat({ isOpen }: Props) {
             </div>
 
             {/* chat input */}
-            <div className='flex flex-row items-center justify-between rounded-b-2xl bg-purple-600 px-3 py-2'>
+            <div className={`flex flex-row items-center justify-between bg-purple-600 px-3 py-2 ${isOpen ? 'rounded-br-2xl' : 'rounded-b-2xl'}`}>
               <textarea
                 value={sendMessageText}
                 onChange={e => setSendMessageText(e.target.value)}
@@ -118,7 +110,7 @@ function Chat({ isOpen }: Props) {
                   setMessages([
                     ...messages,
                     {
-                      id: 5,
+                      id: messages.length + 2,
                       message: sendMessageText,
                       createdAt: new Date(),
                       from: myAccount,
@@ -141,7 +133,7 @@ function Chat({ isOpen }: Props) {
                   setMessages([
                     ...messages,
                     {
-                      id: 5,
+                      id: messages.length + 2,
                       message:
                         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
                       createdAt: new Date(),

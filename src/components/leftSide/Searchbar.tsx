@@ -1,11 +1,13 @@
+import TextField from '@mui/material/TextField'
+import SearchIcon from '@mui/icons-material/Search'
 import React from 'react'
-import { InputText } from 'primereact/inputtext'
 
 const Searchbar = () => {
   return (
-    <div className='my-2 flex h-10 w-auto flex-row items-center justify-around bg-red-200'>
-      <span className='p-input w-full'>
-        <InputText placeholder='Search' className='h-8 w-full' type='text' />
+    <div className='my-2 flex h-14 w-auto flex-row items-center justify-around'>
+      <span className='p-input w-full px-3'>
+        <TextField id='outlined-basic' label='Ara' variant='outlined' fullWidth className='bg-white' size='small'
+        />
       </span>
     </div>
   )

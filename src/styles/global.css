@@ -20,5 +20,5 @@ body {
   line-height: 1.5;
   color: #6f6f6f;
   text-align: left;
-  @apply bg-primary;
+  @apply bg-[#f8dcff];
 }
